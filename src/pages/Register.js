@@ -44,10 +44,10 @@ const onRegister = async() => {
                         <h1 className="no-margin padding_top_default">Register</h1>
                         <h6 className="no-margin padding_top_default text-gray">Create Your Account</h6>
                         <div className="input-group mb-4 padding_top_default">
-                          <input  class="form-control" placeholder="Email" required onChange={ (e)=> setUserEmail(e.target.value)}/>
+                          <input  className="form-control" placeholder="Email" required onChange={ (e)=> setUserEmail(e.target.value)}/>
                           </div>
                         <div className="input-group mb-4 padding_top_default">
-                          <input class="form-control" placeholder="Password" required onChange={ (e)=> setPassword(e.target.value)}/>
+                          <input className="form-control" placeholder="Password" required onChange={ (e)=> setPassword(e.target.value)}/>
                           </div>
                         <div className="padding_top_default text-center">
                             <button className="btn btn-primary px-4 regBtn-color"

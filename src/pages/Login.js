@@ -62,10 +62,10 @@ navigate('/register')
                             <input type="password" className="w-100 input_style" placeholder="Password"/>
                         </div> */}
                         <div className="input-group mb-4 padding_top_default">
-                          <input  class="form-control" placeholder="Use Email" required onChange={ (e)=> setUserEmail(e.target.value)}/>
+                          <input  className="form-control" placeholder="Use Email" required onChange={ (e)=> setUserEmail(e.target.value)}/>
                           </div>
                         <div className="input-group mb-4 padding_top_default">
-                          <input type="password" class="form-control" placeholder="Password" required onChange={ (e)=> setPassword(e.target.value)}/>
+                          <input type="password" className="form-control" placeholder="Password" required onChange={ (e)=> setPassword(e.target.value)}/>
                           </div>
                         <div className="padding_top_default text-center">
                             <button className="btn btn-primary px-4" onClick={()=> onLogin()}>Login</button>                            
