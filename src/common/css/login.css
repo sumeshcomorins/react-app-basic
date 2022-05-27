@@ -1,0 +1,60 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.no-padding{
+    padding:0px!important
+}
+.no-margin{
+    margin:0px!important
+}
+.rel_position{
+    position: relative;
+    height: 110vh;
+    background-color: lightgray;    
+}
+.login_box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);  
+    width: 50%;      
+}
+.border_out{
+    border: solid 1px;
+}
+.login_box_pad{
+    padding: 30px;
+}
+.padding_top_default{
+    padding-top: 15px;
+}
+.margin_top_default{
+    margin-top: 15px;
+}
+.register_bg{
+    background-color: blue;
+}
+.white_bg{
+    background-color: white;
+}
+.text-gray{
+    color: rgb(189, 187, 187);
+}
+.input_style{
+    padding: 10px;
+}
+.loginBtn-pad{
+    padding: 4px;
+}
+.reg_box{
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%,-50%);  
+    width: 80%;      
+}
+.regBtn-color{
+    background-color: green;
+}
