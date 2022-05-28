@@ -2,47 +2,50 @@ import React,{useState} from 'react'
 import { AuthContext } from '../common/Context'
 import '../common/css/login.css'
 import { useNavigate } from "react-router-dom"; 
-import { fetchApi } from '../common/css/api';
 import { config } from '../config';
-import axios from 'axios';
+import Axios from 'axios';
 
 
 export default function Login() {
   let navigate = useNavigate();
   const User = React.useContext(AuthContext);
   const [UserEmail, setUserEmail] = useState('');
-  const [password, setPassword] = useState()
-console.log('User', User)
-console.log('UserEmail', UserEmail)
-console.log('password', password)
+  const [password, setPassword] = useState('')
 
 
-const onLogin = async() => {
-  alert('inProgress')
-//   if(UserEmail && password){
-//     const data={
-//       "request":"loginUser",
-//       "username" : UserEmail,
-//       "password" : password,
-//   }
-//   console.log('data', data)
-//   const response = await fetchApi(config.TEST+'loginUser',data);
-// console.log('response.data', response)
-//   if (response?.data?.status == 'success'){
-//   User.setUserToken(response.data.user.id)
-//   User.setUserDetail(response.data.user)
-//   }else{
-//     alert(' Email or Password wrong.')
-//   }
-//    }
-//   else{
-//     alert('Wrong Input! Email or password field cannot be empty.')
-//   }
+const loginHandle=async(event)=>{
+  event.preventDefault();
+  if(UserEmail!='' && password!=''){
+  let formData = new FormData();
+  formData.append('request', 'loginUser')
+  formData.append('username', UserEmail)
+  formData.append('password', password)
+  Axios({
+      method: 'post',
+      url:config.TEST,
+      data: formData,
+      config: { headers: {'Content-Type': 'multipart/form-data' }}
+  })
+  .then(function (response) {
+console.log('response', response)
+      if(response.data.status=='success'){
+        User.setUserToken(response.data.user.id)
+        User.setUserDetail(response.data.user)
+      }else{
+          alert(' Email or Password wrong.')
+      }
+  })
+  .catch(function (response) {
+      alert('server problem')
+  });
+}else{
+  alert('please fill all field')
+}
+
 }
 
 
 const activateLasers = () =>{
-// alert('bdd')
 navigate('/register')
 }
 
@@ -68,7 +71,10 @@ navigate('/register')
                           <input type="password" className="form-control" placeholder="Password" required onChange={ (e)=> setPassword(e.target.value)}/>
                           </div>
                         <div className="padding_top_default text-center">
-                            <button className="btn btn-primary px-4" onClick={()=> onLogin()}>Login</button>                            
+                            <button className="btn btn-primary px-4" 
+                            // onClick={()=> onLogin()}
+                            onClick={(e)=>loginHandle(e)}
+                            >Login</button>                            
                         </div>
                     </div>
                 </div>

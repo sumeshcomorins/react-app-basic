@@ -58,3 +58,13 @@
 .regBtn-color{
     background-color: green;
 }
+.ali{
+    display: table-cell;
+    vertical-align: middle
+}
+.hom_position{
+    display: table;
+    width: 100%;
+    height: 110vh;
+    background-color: lightgray;    
+}
