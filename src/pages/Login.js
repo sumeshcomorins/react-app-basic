@@ -36,7 +36,7 @@ console.log('response', response)
       }
   })
   .catch(function (response) {
-      alert('server problem')
+      alert('Email or Password wrong')
   });
 }else{
   alert('please fill all field')
