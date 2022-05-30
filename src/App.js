@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { AuthContext } from './common/Context';
 import Home from './pages/Home';
+import Form from './pages/Form';
+import List from './pages/List';
 
 function App() {
   const [userToken, setUserToken] = useState(null)
@@ -20,6 +22,8 @@ function App() {
         
        {userToken ? <>
         <Route  path="/" element={<Home/>} />
+        <Route  path="/form" element={<Form/>} />
+        <Route  path="/list" element={<List/>} />
         </>
           :
         <>
