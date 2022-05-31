@@ -9,8 +9,8 @@ import Axios from 'axios';
 export default function Login() {
   let navigate = useNavigate();
   const User = React.useContext(AuthContext);
-  const [UserEmail, setUserEmail] = useState('test@gmail.com');
-  const [password, setPassword] = useState('goodluck')
+  const [UserEmail, setUserEmail] = useState('');
+  const [password, setPassword] = useState('')
 
 
 const loginHandle=async(event)=>{
@@ -56,8 +56,8 @@ navigate('/register')
             <div className="row no-margin">
                 <div className="col-md-6 no-padding white_bg">
                     <div className="login_box_pad">
-                        <h1 className="no-margin padding_top_default">Login</h1>
-                        <h6 className="no-margin padding_top_default text-gray">Sign In Your Account</h6>
+                        <h1 className="no-margin padding_top_default text-center">Login</h1>
+                        <h6 className="no-margin padding_top_default text-gray text-center">Sign In Your Account</h6>
                         {/* <div className="padding_top_default">
                             <input className="w-100 input_style" placeholder="User Name"/>
                         </div>

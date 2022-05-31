@@ -46,8 +46,8 @@ console.log('response', response)
             <div className="no-margin">
                 <div className="col-md-6 no-padding white_bg">
                     <div className="login_box_pad">
-                        <h1 className="no-margin padding_top_default">Register</h1>
-                        <h6 className="no-margin padding_top_default text-gray">Create Your Account</h6>
+                        <h1 className="no-margin padding_top_default text-center">Register</h1>
+                        <h6 className="no-margin padding_top_default text-gray text-center">Create Your Account</h6>
                         <div className="input-group mb-4 padding_top_default">
                           <input  className="form-control" placeholder="Email" required onChange={ (e)=> setUserEmail(e.target.value)}/>
                           </div>
