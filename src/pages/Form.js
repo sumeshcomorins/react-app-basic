@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../common/css/login.css'
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate,Link } from "react-router-dom"; 
 import { config } from '../config';
 import Axios from 'axios';
 import DatePicker from "react-datepicker";
@@ -21,7 +21,12 @@ export default function Form() {
     var date = new Date(str),
       mnth = ("0" + (date.getMonth() + 1)).slice(-2),
       day = ("0" + date.getDate()).slice(-2);
-    return [day, mnth, date.getFullYear()].join("-");
+    return [mnth, day, date.getFullYear()].join("-");
+  }
+
+  const logoutHandler = () => {
+    User.setUserToken(null)
+    navigate('/')
   }
 
   const expenseFormHandler = async(event) => {
@@ -44,7 +49,7 @@ export default function Form() {
 console.log('response', response)
       if(response.data.status=='success'){
           alert('Your Expense Details successfully collected')
-    navigate('/')
+    navigate('/list')
       }else{
           alert('Faild Please Try Again')
       }
@@ -59,15 +64,24 @@ console.log('response', response)
   }
   return (
     <div className="rel_position">
-        <div className="reg_box">
+      <div class="sidenav">
+  <Link to={'/'}>Home</Link>
+  <Link to={'/form'}>Form</Link>
+  <Link to={'/list'}>List</Link>
+  <div className="text-center" style={{marginTop:50,marginRight:10,marginLeft:10}}>
+
+  <button className="w-100 logoutlinks" onClick={()=> logoutHandler()}>Log Out</button>
+  </div>
+</div>
+        <div className="form_box">
             <div className="no-margin">
                 <div className="col-md-6 no-padding white_bg">
                     <div className="login_box_pad">
-                        <h1 className="no-margin padding_top_default">Expense Form</h1>
-                        <h6 className="no-margin padding_top_default text-gray">Fill Your Expense Details</h6>
-                        <div className="input-group mb-4 padding_top_default datePicker">
+                        <h1 className="no-margin padding_top_default text-center">Expense Form</h1>
+                        <h6 className="no-margin padding_top_default text-gray text-center">Fill Your Expense Details</h6>
+                        <div className="input-group mb-4 padding_top_default datePicker text-center">
                         <label for="fname">choose date</label>
-                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} placeholderText='DD/MM/YYYY' />
+                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} placeholderText='MM/DD/YYYY' />
 
                           </div>
                         <div className="input-group mb-4 padding_top_default">

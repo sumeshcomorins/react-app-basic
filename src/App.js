@@ -14,7 +14,7 @@ function App() {
   const [userDetail, setUserDetail] = useState(['bfjbdfbs']);
   const user = {userDetail, setUserDetail,userToken,setUserToken};
   return (
-    <div className="App">
+    <div >
     {/* <h1>Welcome to React Router!</h1> */}
     <HashRouter>
     <AuthContext.Provider value = {user}>

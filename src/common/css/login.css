@@ -68,6 +68,13 @@
     height: 110vh;
     background-color: lightgray;    
 }
+.height-100{
+    height: 100vh;
+}
+.home_content_border{    
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px gray;
+}
 
 
 * {box-sizing: border-box}
@@ -126,15 +133,59 @@ body {font-family: "Lato", sans-serif;}
 }
 .logoutlinks {
     background-color: red !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 0 2px 0;
+}
+.form_box{
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%,-50%);  
+    width: 80%;      
 }
 
 .expenseList_box{
     position: absolute;
-    top: 50%;
-    left: 70%;
+    top: 45%;
+    left: 80%;
     transform: translate(-50%,-50%);  
     width: 90%;      
 }
 .expenseList_box_pad{
     padding: 30px;
 }
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
