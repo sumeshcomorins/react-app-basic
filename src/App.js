@@ -8,6 +8,7 @@ import { AuthContext } from './common/Context';
 import Home from './pages/Home';
 import Form from './pages/Form';
 import List from './pages/List';
+import ReportChart from './pages/ReportChart';
 
 function App() {
   const [userToken, setUserToken] = useState(null)
@@ -24,6 +25,7 @@ function App() {
         <Route  path="/" element={<Home/>} />
         <Route  path="/form" element={<Form/>} />
         <Route  path="/list" element={<List/>} />
+        <Route  path="/reportChart" element={<ReportChart/>} />
         </>
           :
         <>

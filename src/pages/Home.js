@@ -24,6 +24,7 @@ export default function Home() {
           <Link to={'/'}>Home</Link>
           <Link to={'/form'}>Form</Link>
           <Link to={'/list'}>List</Link>
+          <Link to={'/reportChart'}>Chart Report</Link>
           <div className="text-center" style={{marginTop:50,marginRight:10,marginLeft:10}}>
             <button className="w-100 logoutlinks" onClick={()=> logoutHandler()}>Log Out</button>
           </div>
