@@ -18,17 +18,18 @@ export default function Home() {
 
   return (
     
-    <div>
-    <div class="sidenav">
-  <Link to={'/'}>Home</Link>
-  <Link to={'/form'}>Form</Link>
-  <Link to={'/list'}>List</Link>
-  <div className="text-center" style={{marginTop:50,marginRight:10,marginLeft:10}}>
-
-  <button className="w-100 logoutlinks" onClick={()=> logoutHandler()}>Log Out</button>
-  </div>
+    <div className="row no-margin">
+      <div className="col-md-2 no-padding">
+        <div class="sidenav">
+          <Link to={'/'}>Home</Link>
+          <Link to={'/form'}>Form</Link>
+          <Link to={'/list'}>List</Link>
+          <div className="text-center" style={{marginTop:50,marginRight:10,marginLeft:10}}>
+            <button className="w-100 logoutlinks" onClick={()=> logoutHandler()}>Log Out</button>
+          </div>
+      </div>
 </div>
-    <div className="main">
+    <div className="main col-md-10 no-padding">
       <div className="rel_position height-100">
         <div className="login_box home_content_border">
 
