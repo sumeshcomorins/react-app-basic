@@ -9,8 +9,8 @@ import Axios from 'axios';
 export default function Login() {
   let navigate = useNavigate();
   const User = React.useContext(AuthContext);
-  const [UserEmail, setUserEmail] = useState('test@gmail.com');
-  const [password, setPassword] = useState('goodluck')
+  const [UserEmail, setUserEmail] = useState('');
+  const [password, setPassword] = useState('')
 
 
 const loginHandle=async(event)=>{
