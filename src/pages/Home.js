@@ -19,7 +19,7 @@ export default function Home() {
   return (
     
     <div className="row no-margin">
-      <div className="col-md-2 no-padding">
+      <div className="col-md-2 no-padding d-none d-md-block">
         <div class="sidenav">
           <Link to={'/'}>Home</Link>
           <Link to={'/form'}>Form</Link>
@@ -39,6 +39,18 @@ export default function Home() {
         </div>
       </div>
 </div>
+<div className="col-md-2 no-padding d-sm-block d-md-none">
+        <div class="sidenav">          
+          <Link to={'/'}>Home</Link>
+          <Link to={'/form'}>Form</Link>
+          <Link to={'/list'}>List</Link>
+          <Link to={'/reportChart'}>Chart Report</Link>
+          <div className="text-center logout_btn_responsive_margin" style={{marginTop:50,marginRight:10,marginLeft:10}}>
+            <button className="w-100 logoutlinks" onClick={()=> logoutHandler()}>Log Out</button>
+          </div>
+      </div>
+</div>
+
 </div>
   )
 }

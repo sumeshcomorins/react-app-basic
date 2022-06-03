@@ -94,7 +94,7 @@ console.log('ooooooooooooooooooooooooooooo',obj2);
   return (
     <div>
       <div className='row no-margin'>
-        <div className='col-md-2 col-sm-12 no-padding'>
+      <div className='col-md-2 col-sm-12 no-padding d-none d-md-block'>
           <div class="sidenav">
             <Link to={'/'}>Home</Link>
             <Link to={'/form'}>Form</Link>
@@ -105,7 +105,7 @@ console.log('ooooooooooooooooooooooooooooo',obj2);
             </div>
           </div>
         </div>
-        <div className='col-md-10 col-sm-12 no-padding' style={{position:'relative',backgroundColor:'#d3d3d3'}}>
+        <div className='col-md-10 col-sm-12 no-padding report_responsive_height' style={{position:'relative',backgroundColor:'#d3d3d3'}}>
           <div className="form_box">
               <div className="col-md-12 no-padding white_bg">
                 <div className="login_box_pad">
@@ -137,6 +137,17 @@ console.log('ooooooooooooooooooooooooooooo',obj2);
       </VictoryChart>}
                 </div>
               </div>
+          </div>
+        </div>
+        <div className='col-md-2 col-sm-12 no-padding d-sm-block d-md-none'>
+          <div class="sidenav">
+            <Link to={'/'}>Home</Link>
+            <Link to={'/form'}>Form</Link>
+            <Link to={'/list'}>List</Link>
+          <Link to={'/reportChart'}>Chart Report</Link>
+            <div className="text-center logout_btn_responsive_margin" style={{ marginTop: 50, marginRight: 10, marginLeft: 10 }}>
+              <button className="w-100 logoutlinks" onClick={() => logoutHandler()}>Log Out</button>
+            </div>
           </div>
         </div>
       </div>

@@ -62,7 +62,7 @@ export default function List () {
 
   return (
     <div className='row no-margin'>
-      <div className='col-md-2 no-padding'>
+      <div className='col-md-2 col-sm-12 no-padding d-none d-md-block'>
         <div class="sidenav">
           <Link to={'/'}>Home</Link>
           <Link to={'/form'}>Form</Link>
@@ -73,10 +73,10 @@ export default function List () {
           </div>
         </div>
       </div>
-      <div className='col-md-10 no-padding' style={{position:'relative',backgroundColor:"#d3d3d3"}}>
+      <div className='col-md-10 no-padding list_responsive_height' style={{position:'relative',backgroundColor:"#d3d3d3"}}>
         <div className="expenseList_box">          
             <div className="col-md-12 no-padding white_bg">
-              <div className="expenseList_box_pad">
+              <div className="expenseList_box_pad list_table_responsive_scroll">
                 <h1 className="no-margin padding_top_default text-center">Expense Records</h1>
                 <h6 className="no-margin padding_top_default text-gray text-center">For Your Expense Record</h6>
 
@@ -119,7 +119,7 @@ export default function List () {
             </div>          
         </div>
         {showModel &&
-        <div class="modal-dialog">
+        <div class="modal-dialog modal_position">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -137,7 +137,17 @@ export default function List () {
           </div>
         </div>}
       </div>      
-
+      <div className='col-md-2 col-sm-12 no-padding d-sm-block d-md-none'>
+          <div class="sidenav">
+            <Link to={'/'}>Home</Link>
+            <Link to={'/form'}>Form</Link>
+            <Link to={'/list'}>List</Link>
+          <Link to={'/reportChart'}>Chart Report</Link>
+            <div className="text-center logout_btn_responsive_margin" style={{ marginTop: 50, marginRight: 10, marginLeft: 10 }}>
+              <button className="w-100 logoutlinks" onClick={() => logoutHandler()}>Log Out</button>
+            </div>
+          </div>
+        </div>
     </div>
   )
 }
