@@ -41,10 +41,10 @@ console.log('response', response)
 }
 
   return (
-    <div style={{backgroundColor:"#d3d3d3",position:'relative',height:"100vh"}}>
+    <div style={{position:'relative',height:"100vh"}}>
         <div className="reg_box">
             <div className="no-margin">
-                <div className="white_bg">
+                <div className="white_bg register_box">
                     <div className="login_box_pad">
                         <h1 className="no-margin padding_top_default text-center">Register</h1>
                         <h6 className="no-margin padding_top_default text-gray text-center">Create Your Account</h6>

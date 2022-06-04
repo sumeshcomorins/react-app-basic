@@ -11,8 +11,7 @@
 }
 .rel_position{
     position: relative;
-    height: 110vh;
-    background-color: lightgray;    
+    height: 110vh;      
 }
 .login_box{
     position: absolute;
@@ -138,12 +137,9 @@ body {font-family: "Lato", sans-serif;}
     border-radius: 5px;
     padding: 2px 0 2px 0;
 }
-.form_box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%); 
-    width: 50%;          
+.form_box{    
+    width: 75%; 
+    margin: auto;         
 }
 .form_responsive_height{
     height: 100vh;
@@ -157,7 +153,7 @@ body {font-family: "Lato", sans-serif;}
     width: 75%;      
 }
 .expenseList_box_pad{
-    padding: 30px;
+    padding: 15px;
 }
 
 /*modal*/
@@ -222,7 +218,7 @@ body {font-family: "Lato", sans-serif;}
     .sidenav{
         height: 40vh!important;        
     }
-    .form_responsive_height, .height-100, .list_responsive_height, .report_responsive_height{
+    .form_responsive_height, .height-100, .report_responsive_height{
         height: 60vh!important;
     }
     .logout_btn_responsive_margin{
@@ -254,7 +250,52 @@ body {font-family: "Lato", sans-serif;}
         transform: translate(0px, 0px);
     }
     .list_table_responsive_scroll{
-        height: 50vh;
+        max-height: 80vh;
         overflow-y: scroll;
     }
+    .form_position{
+        position: absolute;
+        left: 50%;
+        top: 70%!important;
+        transform: translate(-50%, -50%);
+        width: 90%!important;
+      }
+  }
+
+
+
+
+
+  .navbar_dropshadow{
+      box-shadow: 0px 3px 5px lightgrey;
+  }
+  .form_drop_shadow{
+    box-shadow: 0px 2px 5px lightgrey;
+  }
+  .list_table_box{
+      margin: 15px;
+      box-shadow: 0px 2px 5px lightgrey;
+  }
+  .report_shadow{      
+      box-shadow: 0px 2px 5px lightgrey;
+  }
+  .form_position{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+  }
+  .login_box_shadow{
+    box-shadow: 0px 2px 5px lightgrey;
+  }
+  .login_box_leftradius{
+      border-radius: 10px 0px 0px 10px;
+  }
+  .login_box_rightradius{
+    border-radius: 0px 10px 10px 0px;
+  }
+  .register_box{
+    box-shadow: 0px 2px 5px lightgrey;
+    border-radius: 10px;
   }

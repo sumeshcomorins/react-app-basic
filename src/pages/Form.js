@@ -9,6 +9,7 @@ import { AuthContext } from '../common/Context'
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import "react-datepicker/dist/react-datepicker.css";
+import Navbar from '../common/navbar';
 
 export default function Form () {
   const User = React.useContext( AuthContext );
@@ -70,59 +71,38 @@ export default function Form () {
     }
   }
   return (
-    <div>
-      <div className='row no-margin'>
-        <div className='col-md-2 col-sm-12 no-padding d-none d-md-block'>
-          <div class="sidenav">
-            <Link to={'/'}>Home</Link>
-            <Link to={'/form'}>Form</Link>
-            <Link to={'/list'}>List</Link>
-          <Link to={'/reportChart'}>Chart Report</Link>
-            <div className="text-center" style={{ marginTop: 50, marginRight: 10, marginLeft: 10 }}>
-              <button className="w-100 logoutlinks" onClick={() => logoutHandler()}>Log Out</button>
-            </div>
-          </div>
-        </div>
-        <div className='col-md-10 col-sm-12 no-padding form_responsive_height' style={{position:'relative',backgroundColor:'#d3d3d3'}}>
-          <div className="form_box">
-            {/* <div className="no-margin"> */}
-              <div className="col-md-12 no-padding white_bg">
-                <div className="login_box_pad">
-                  <h1 className="no-margin padding_top_default text-center">Expense Form</h1>
-                  <h6 className="no-margin padding_top_default text-gray text-center">Fill Your Expense Details</h6>
-                  <div className="input-group mb-4 padding_top_default datePicker text-center">
-                    <label for="fname">choose date</label>
-                    <DatePicker selected={startDate} onChange={( date ) => setStartDate( date )} placeholderText='MM/DD/YYYY' />
-                  </div>
-                  <Dropdown options={options} onChange={expenseonselect} placeholder="Expense Type" />
-                  {/* <div className="input-group mb-4 padding_top_default">
-                              <input  className="form-control" placeholder="Expense Type" required onChange={ (e)=> setExpenseType(e.target.value)}/>
-                              </div> */}
-                  <div className="input-group mb-4 padding_top_default">
-                    <input className="form-control" type="number" placeholder="Amount" required onChange={( e ) => setAmount( e.target.value )} />
-                  </div>
-                  <div className="padding_top_default text-center">
-                    <button className="btn btn-primary px-4 regBtn-color"
-                      onClick={( e ) => expenseFormHandler( e )}
-                    >Add Details</button>
+    <div>     
+        <Navbar />
+        <div class="main-content">          
+          <div className='no-padding form_responsive_height' style={{position:'relative'}}>
+            <div className="form_position">
+              {/* <div className="no-margin"> */}
+                <div className="white_bg form_drop_shadow">
+                  <div style={{padding:15}}>
+                    <h1 className="no-margin padding_top_default text-center">Expense Form</h1>
+                    <h6 className="no-margin padding_top_default text-gray text-center">Fill Your Expense Details</h6>
+                    <div className="input-group mb-4 padding_top_default datePicker text-center">
+                      <label for="fname">choose date</label>
+                      <DatePicker selected={startDate} onChange={( date ) => setStartDate( date )} placeholderText='MM/DD/YYYY' />
+                    </div>
+                    <Dropdown options={options} onChange={expenseonselect} placeholder="Expense Type" />
+                    {/* <div className="input-group mb-4 padding_top_default">
+                                <input  className="form-control" placeholder="Expense Type" required onChange={ (e)=> setExpenseType(e.target.value)}/>
+                                </div> */}
+                    <div className="input-group mb-4 padding_top_default">
+                      <input className="form-control" type="number" placeholder="Amount" required onChange={( e ) => setAmount( e.target.value )} />
+                    </div>
+                    <div className="padding_top_default text-center">
+                      <button className="btn btn-primary px-4 regBtn-color"
+                        onClick={( e ) => expenseFormHandler( e )}
+                      >Add Details</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            {/* </div> */}
-          </div>
-        </div>
-        <div className='col-md-2 col-sm-12 no-padding d-sm-block d-md-none'>
-          <div class="sidenav">
-            <Link to={'/'}>Home</Link>
-            <Link to={'/form'}>Form</Link>
-            <Link to={'/list'}>List</Link>
-          <Link to={'/reportChart'}>Chart Report</Link>
-            <div className="text-center logout_btn_responsive_margin" style={{ marginTop: 50, marginRight: 10, marginLeft: 10 }}>
-              <button className="w-100 logoutlinks" onClick={() => logoutHandler()}>Log Out</button>
+              {/* </div> */}
             </div>
-          </div>
+          </div> 
         </div>
-      </div>
     </div>
   )
 }

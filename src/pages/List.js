@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { AuthContext } from '../common/Context'
 import '../common/css/login.css'
 import { useNavigate, Link } from "react-router-dom";
+import Navbar from '../common/navbar';
 
 
 export default function List () {
@@ -31,6 +32,12 @@ export default function List () {
   const closeModal = () => {
     setshowModel( false )
   };
+
+  const formatDate = ( date ) => {
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var now = new Date( date );
+    return months[now.getMonth()] + ' ' + now.getDate() + ' ' + now.getFullYear()
+  }
 
   useEffect( () => {
     let formData = new FormData();
@@ -61,21 +68,12 @@ export default function List () {
   }
 
   return (
-    <div className='row no-margin'>
-      <div className='col-md-2 col-sm-12 no-padding d-none d-md-block'>
-        <div class="sidenav">
-          <Link to={'/'}>Home</Link>
-          <Link to={'/form'}>Form</Link>
-          <Link to={'/list'}>List</Link>
-          <Link to={'/reportChart'}>Chart Report</Link>
-          <div className="text-center" style={{ marginTop: 50, marginRight: 10, marginLeft: 10 }}>
-            <button className="w-100 logoutlinks" onClick={() => logoutHandler()}>Log Out</button>
-          </div>
-        </div>
-      </div>
-      <div className='col-md-10 no-padding list_responsive_height' style={{position:'relative',backgroundColor:"#d3d3d3"}}>
-        <div className="expenseList_box">          
-            <div className="col-md-12 no-padding white_bg">
+    <div>
+      <Navbar />
+      <div class="main-content">
+        <div className='list_responsive_height' style={{ position: 'relative' }}>
+          <div>
+            <div className="list_table_box white_bg">
               <div className="expenseList_box_pad list_table_responsive_scroll">
                 <h1 className="no-margin padding_top_default text-center">Expense Records</h1>
                 <h6 className="no-margin padding_top_default text-gray text-center">For Your Expense Record</h6>
@@ -98,7 +96,7 @@ export default function List () {
                       expenseRecordDatas.map( ( item, index ) => {
                         return (
                           <tr className='text-center'>
-                            <td>{item.date}</td>
+                            <td>{formatDate( item.date )}</td>
                             <td>{item.amount}</td>
                             <td>{item.type}</td>
                             {/* <td>
@@ -116,38 +114,28 @@ export default function List () {
                   </tbody>
                 </table>
               </div>
-            </div>          
-        </div>
-        {showModel &&
-        <div class="modal-dialog modal_position">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => closeModal()}></button>
             </div>
-            <div class="modal-body">
-              <div className="input-group mb-4 padding_top_default">
-                <input className="form-control" placeholder="Expense Type" required onChange={( e ) => alert( 'hjbjb' )} />
+          </div>
+          {showModel &&
+            <div class="modal-dialog modal_position">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => closeModal()}></button>
+                </div>
+                <div class="modal-body">
+                  <div className="input-group mb-4 padding_top_default">
+                    <input className="form-control" placeholder="Expense Type" required onChange={( e ) => alert( 'hjbjb' )} />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => closeModal()}>Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => closeModal()}>Save changes</button>
+                </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => closeModal()}>Close</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => closeModal()}>Save changes</button>
-            </div>
-          </div>
-        </div>}
-      </div>      
-      <div className='col-md-2 col-sm-12 no-padding d-sm-block d-md-none'>
-          <div class="sidenav">
-            <Link to={'/'}>Home</Link>
-            <Link to={'/form'}>Form</Link>
-            <Link to={'/list'}>List</Link>
-          <Link to={'/reportChart'}>Chart Report</Link>
-            <div className="text-center logout_btn_responsive_margin" style={{ marginTop: 50, marginRight: 10, marginLeft: 10 }}>
-              <button className="w-100 logoutlinks" onClick={() => logoutHandler()}>Log Out</button>
-            </div>
-          </div>
+            </div>}
         </div>
+      </div>
     </div>
   )
 }

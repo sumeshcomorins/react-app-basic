@@ -54,7 +54,7 @@ navigate('/register')
     <div className="rel_position">
         <div className="login_box">
             <div className="row no-margin">
-                <div className="col-md-6 no-padding white_bg">
+                <div className="col-md-6 no-padding white_bg login_box_leftradius login_box_shadow">
                     <div className="login_box_pad">
                         <h1 className="no-margin padding_top_default text-center">Login</h1>
                         <h6 className="no-margin padding_top_default text-gray text-center">Sign In Your Account</h6>
@@ -78,7 +78,7 @@ navigate('/register')
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6 no-padding register_bg">
+                <div className="col-md-6 no-padding register_bg login_box_rightradius login_box_shadow">
                     <div className="login_box_pad padding_top_default">
                         <div className="text-center">
                             <h1 className="no-margin padding_top_default padding_top_default text-white">Sign up</h1>
