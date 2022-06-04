@@ -3,27 +3,14 @@ import { config } from '../config';
 import Axios from 'axios';
 import { AuthContext } from '../common/Context'
 import '../common/css/login.css'
-import { useNavigate, Link } from "react-router-dom";
 import Navbar from '../common/navbar';
 
 
 export default function List () {
   const User = React.useContext( AuthContext );
-  let navigate = useNavigate();
   const userId = User.userDetail.id
   const [expenseRecordDatas, setExpenseRecordDatas] = useState( '' )
   const [showModel, setshowModel] = useState( false )
-  if ( expenseRecordDatas ) {
-    const sortArray = expenseRecordDatas.sort( ( a, b ) => {
-      return new Date( b.date ) - new Date( a.date );
-    } )
-    console.log( 'sortArray', sortArray )
-  }
-
-  const logoutHandler = () => {
-    User.setUserToken( null )
-    navigate( '/' )
-  }
 
   const openModal = () => {
     setshowModel( true )
@@ -58,14 +45,10 @@ export default function List () {
           alert( ' no data found' )
         }
       } )
-      .catch( function ( response ) {
-        alert( 'server problem' )
-      } );
+      // .catch( function ( response ) {
+      //   alert( 'server problem' )
+      // } );
   }, [] )
-
-  const editHandler = () => {
-    alert( 'nmn' )
-  }
 
   return (
     <div>
@@ -77,9 +60,6 @@ export default function List () {
               <div className="expenseList_box_pad list_table_responsive_scroll">
                 <h1 className="no-margin padding_top_default text-center">Expense Records</h1>
                 <h6 className="no-margin padding_top_default text-gray text-center">For Your Expense Record</h6>
-
-
-
 
                 <table class="table table-striped">
                   <thead>
@@ -96,7 +76,7 @@ export default function List () {
                       expenseRecordDatas.map( ( item, index ) => {
                         return (
                           <tr className='text-center'>
-                            <td>{formatDate( item.date )}</td>
+                            <td>{item.date}</td>
                             <td>{item.amount}</td>
                             <td>{item.type}</td>
                             {/* <td>

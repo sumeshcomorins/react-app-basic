@@ -31,9 +31,9 @@ console.log('response', response)
           alert('faild')
       }
   })
-  .catch(function (response) {
-      alert('server problem')
-  });
+  // .catch(function (response) {
+  //     alert('server problem')
+  // });
 }else{
   alert('please fill all field')
 }

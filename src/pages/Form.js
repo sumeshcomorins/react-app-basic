@@ -32,11 +32,6 @@ export default function Form () {
     return [mnth, day, date.getFullYear()].join( "-" );
   }
 
-  const logoutHandler = () => {
-    User.setUserToken( null )
-    navigate( '/' )
-  }
-
   const expenseFormHandler = async ( event ) => {
     event.preventDefault();
     if ( startDate && amount && expenseType ) {
@@ -62,9 +57,9 @@ export default function Form () {
             alert( 'Faild Please Try Again' )
           }
         } )
-        .catch( function ( response ) {
-          alert( 'server problem' )
-        } );
+        // .catch( function ( response ) {
+        //   alert( 'server problem' )
+        // } );
 
     } else {
       alert( 'Please Fill All Details' )

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import '../common/css/login.css'
-import { useNavigate, Link } from "react-router-dom";
 import '../common/css/login.css'
 import { AuthContext } from '../common/Context'
 import 'react-dropdown/style.css';
@@ -12,8 +11,7 @@ import Axios from 'axios';
 import Navbar from '../common/navbar';
 
 export default function ReportChart() {
-   
-    let navigate = useNavigate();
+
     const User = React.useContext( AuthContext );
   const userId = User.userDetail.id
   const [expenseRecordDatas, setExpenseRecordDatas] = useState( '' )
@@ -82,15 +80,10 @@ console.log('ooooooooooooooooooooooooooooo',obj2);
           alert( ' no data found' )
         }
       } )
-      .catch( function ( response ) {
-        alert( 'server problem' )
-      } );
+      // .catch( function ( response ) {
+      //   alert( 'server problem' )
+      // } );
   }, [] )
-
-  const logoutHandler = () => {
-    User.setUserToken( null )
-    navigate( '/' )
-  }
 
   return (
     <div>

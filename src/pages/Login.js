@@ -35,9 +35,9 @@ console.log('response', response)
           alert(' Email or Password wrong.')
       }
   })
-  .catch(function (response) {
-      alert('Email or Password wrong')
-  });
+  // .catch(function (response) {
+  //     alert('Email or Password wrong')
+  // });
 }else{
   alert('please fill all field')
 }

@@ -13,12 +13,7 @@ export default function Home () {
   const User = React.useContext( AuthContext );
   const userName = User.userDetail.name
 
-  const logoutHandler = () => {
-    User.setUserToken( null )
-  }
-
   return (
-
     <>   
       <Navbar />      
       <div class="main-content">                        
