@@ -34,8 +34,8 @@ export default function Home() {
       <div className="rel_position height-100">
         <div className="login_box home_content_border">
 
-  <h3 className="text-center"><b>welcome</b></h3>
-  <h2 className="text-center">{userName}kfdjbgkbkfjkg</h2>
+  <h3 className="text-center"><b>OLD DESIGN UI</b></h3>
+  <h2 className="text-center">{userName}</h2>
         </div>
       </div>
 </div>
