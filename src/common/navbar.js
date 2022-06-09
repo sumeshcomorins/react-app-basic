@@ -41,7 +41,12 @@ export default function Navbar() {
                 <Link to={'/reportChart'} className="nav-link">
                 <i class=" fa-solid fa-chart-column" style={{paddingRight:13}}></i> Chart Report
                 </Link>                
-              </li>              
+              </li>
+              <li class="nav-item">
+                <Link to={'/fileUpload'} className="nav-link">
+                <i class="fa-solid fa-file-arrow-up" style={{paddingRight:16}}></i> File Upload
+                </Link>                
+              </li>               
             </ul>
             <hr class="navbar-divider my-3" />
             <div class="mt-auto"></div>
