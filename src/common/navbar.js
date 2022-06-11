@@ -49,7 +49,7 @@ export default function Navbar() {
               </li> 
               <li class="nav-item">
                 <Link to={'/uploadtable'} className="nav-link">
-                <i class="fa-solid fa-file-arrow-up" style={{paddingRight:16}}></i> Upload List
+                <i class="fa-solid fa-table" style={{paddingRight:16}}></i> Upload List
                 </Link>                
               </li>               
             </ul>

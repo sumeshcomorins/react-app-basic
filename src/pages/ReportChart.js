@@ -9,6 +9,7 @@ import { VictoryBar, VictoryChart,VictoryLine } from 'victory';
 import { config } from '../config';
 import Axios from 'axios';
 import Navbar from '../common/navbar';
+import ReactApexChart from 'react-apexcharts'
 
 export default function ReportChart() {
 
@@ -16,6 +17,16 @@ export default function ReportChart() {
   const userId = User.userDetail.id
   const [expenseRecordDatas, setExpenseRecordDatas] = useState( '' )
   console.log('expenseRecordDatasscdssdss', expenseRecordDatas)
+const [series, setSeries] = useState('')
+const [datearray, setDatearray] = useState([])
+const [state, setState] = useState('')
+console.log('datearray', datearray)
+
+// let seriesArr = expenseRecordDatas? expenseRecordDatas.map(v => v.amount) : null
+  
+  
+  
+  
 
 //   const obj = [
 //     { 'name': 'P1', 'value': 150 },
@@ -74,7 +85,34 @@ for (let prop in holder) {
   obj2.push({ date: prop, amount: holder[prop] });
 }
 setExpenseRecordDatas( obj2.sort((a, b) => new Date(b.date) - new Date(a.date)).reverse())
-console.log('ooooooooooooooooooooooooooooo',obj2);
+let convertNumber = obj2.sort((a, b) => new Date(b.date) - new Date(a.date)).reverse()
+let numofAmount = convertNumber.map(function (item) {
+  return parseInt(item.amount, 10);
+});
+setSeries(numofAmount)
+let dateArr = convertNumber.map(v => v.date)
+const test =  {
+  options:{
+  labels:dateArr,
+   chart: {
+     width: 380,
+     type: 'pie',
+   },
+   responsive: [{
+     breakpoint: 480,
+     options: {
+       chart: {
+         width: 200
+       },
+       legend: {
+         position: 'bottom'
+       }
+     }
+   }]
+ }}
+setState(test)
+setDatearray(dateArr)
+console.log('ooooooooooooooooooooooooooooo',numofAmount);
           //   User.setUserDetail(response.data.user)
         } else {
           alert( ' no data found' )
@@ -91,34 +129,12 @@ console.log('ooooooooooooooooooooooooooooo',obj2);
       <div class="main-content">            
           <div style={{margin:15}}>
             <div className="form_box report_shadow">
-                <div className="white_bg">
+                <div className="white_bg" style={{marginTop:90}}>
                   <div className="login_box_pad">
                     <h1 className="no-margin padding_top_default text-center">Expense Chart</h1>
                     <h6 className="no-margin padding_top_default text-gray text-center">Your Expense Chart</h6>
-                    {expenseRecordDatas && <VictoryChart
-                    domainPadding={25}
-                    style={{ data: { fill: "#c43a31" } }}
-                    alignment="start"
-                    >
-          <VictoryBar
-            data={expenseRecordDatas}
-            x="date"
-            y="amount"
-          />
-
-
-          {/* <VictoryLine
-      style={{
-        data: { stroke: "#c43a31" },
-        parent: { border: "1px solid #ccc"}
-      }}
-      data={
-        expenseRecordDatas.map(({ date, amount }) => ({ x: date, y: amount }))
-      }
-    />  */}
-
-
-        </VictoryChart>}
+                    
+        {series && datearray && <ReactApexChart options={state.options} series={series} type="pie" width={500} />}
                   </div>
                 </div>
             </div>
