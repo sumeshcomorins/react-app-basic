@@ -21,6 +21,8 @@ const [series, setSeries] = useState('')
 const [datearray, setDatearray] = useState([])
 const [state, setState] = useState('')
 console.log('datearray', datearray)
+console.log('series', series)
+
 
 // let seriesArr = expenseRecordDatas? expenseRecordDatas.map(v => v.amount) : null
   
@@ -69,6 +71,52 @@ console.log('datearray', datearray)
 
           // setExpenseRecordDatas( response.data.records)
 const obj = response.data.records
+
+
+var sumedUpDates = [];
+var amount = [];
+
+function isDateSumedUp(date) {
+    return sumedUpDates.indexOf(date.substring(0, 7)) !== -1;
+}
+
+function sumUpDate(date) {
+    var sum = 0;
+
+    obj.forEach(t => {
+        if(t.date.substring(0, 7) === date.substring(0, 7)) {
+            sum += parseInt(t.amount);
+        }
+    });
+
+    sumedUpDates.push(date.substring(0, 7));
+    amount.push(sum);
+}
+obj.forEach(t => {
+  if(!isDateSumedUp(t.date)) {
+      sumUpDate(t.date);
+  }
+});
+
+var obje = {};
+
+sumedUpDates.forEach((d, i) => obje[d] = amount[i]);
+console.log('obje', obje)
+var data1 = [],
+    data2 = [];
+
+for (var property in obje) {
+
+   if ( ! obje.hasOwnProperty(property)) {
+      continue;
+   }
+
+   data1.push(property);
+   data2.push(obje[property]);
+
+}
+
+//date seperate is corrent but amount total calculate is wrong (so asign total of amount value in top of the --data2-- variable)
           const holder = {};
 
 obj.forEach(function(d) {
@@ -84,16 +132,11 @@ const obj2 = [];
 for (let prop in holder) {
   obj2.push({ date: prop, amount: holder[prop] });
 }
+// in expenseRecordDatas state  data inside count of amount value calculation is wrong 
 setExpenseRecordDatas( obj2.sort((a, b) => new Date(b.date) - new Date(a.date)).reverse())
-let convertNumber = obj2.sort((a, b) => new Date(b.date) - new Date(a.date)).reverse()
-let numofAmount = convertNumber.map(function (item) {
-  return parseInt(item.amount, 10);
-});
-setSeries(numofAmount)
-let dateArr = convertNumber.map(v => v.date)
 const test =  {
   options:{
-  labels:dateArr,
+  labels:data1,
    chart: {
      width: 380,
      type: 'pie',
@@ -111,8 +154,8 @@ const test =  {
    }]
  }}
 setState(test)
-setDatearray(dateArr)
-console.log('ooooooooooooooooooooooooooooo',numofAmount);
+setDatearray(data1)
+setSeries(data2)
           //   User.setUserDetail(response.data.user)
         } else {
           alert( ' no data found' )
