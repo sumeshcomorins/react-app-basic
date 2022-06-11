@@ -46,6 +46,11 @@ export default function Navbar() {
                 <Link to={'/fileUpload'} className="nav-link">
                 <i class="fa-solid fa-file-arrow-up" style={{paddingRight:16}}></i> File Upload
                 </Link>                
+              </li> 
+              <li class="nav-item">
+                <Link to={'/uploadtable'} className="nav-link">
+                <i class="fa-solid fa-file-arrow-up" style={{paddingRight:16}}></i> Upload List
+                </Link>                
               </li>               
             </ul>
             <hr class="navbar-divider my-3" />

@@ -14,12 +14,6 @@ export default function FileUpload () {
   const userName = User.userDetail.name
 
   const [file, setFile] = useState();
-  const [transRecordDatas, settransRecordDatas] = useState( '' )
-  const [token, setToken] = useState('')
-
-  console.log('transRecordDatas', transRecordDatas)
-
-console.log('file', file)
     const fileReader = new FileReader();
 
     const handleOnChange = (e) => {
@@ -42,9 +36,8 @@ console.log('file', file)
         .then( function ( response ) {
             console.log( 'response', response )
             if ( response.data.status == 'success' ) {
-              let generateToken = Math.floor(Math.random() * 100) + 1
-            setToken(generateToken)
               alert( response.data.message )
+              navigate('/uploadtable')
             } else {
               alert( response.data.message )
               console.log('response', response)
@@ -54,29 +47,6 @@ console.log('file', file)
           //   alert( 'server problem' )
           // } );
       };
-
-      useEffect( () => {
-        let formData = new FormData();
-        formData.append( 'request', 'transactionsRecord' )
-        Axios( {
-          method: 'post',
-          url: config.TEST,
-          data: formData,
-          config: { headers: { 'Content-Type': 'multipart/form-data' } }
-        } )
-          .then( function ( response ) {
-            console.log( 'response', response )
-            if ( response.status ) {
-              settransRecordDatas( response.data.records )
-              //   User.setUserDetail(response.data.user)
-            } else {
-              alert( ' no data found' )
-            }
-          } )
-          // .catch( function ( response ) {
-          //   alert( 'server problem' )
-          // } );
-      }, [token] )
 
   return (
     <>   
@@ -157,53 +127,6 @@ console.log('file', file)
     </div>
           </div>
         </div> 
-
-        <div className='list_responsive_height' style={{marginTop:-180}} >
-          <div>
-            <div className="list_table_box white_bg">
-              <div className="expenseList_box_pad list_table_responsive_scroll">
-                <h1 className="no-margin padding_top_default text-center">Transcations Records</h1>
-                <h6 className="no-margin padding_top_default text-gray text-center">For Your Transcations Record</h6>
-                <table class="table table-striped">
-                  <thead>
-                    <tr className='text-center'>
-                      <th scope="col">Date</th>
-                      <th scope="col">Description</th>
-                      <th scope="col">Original Description</th>
-                      <th scope="col">Amount</th>
-                      <th scope="col">transactionType</th>
-                      <th scope="col">Category</th>
-                      <th scope="col">Account Name</th>
-                      <th scope="col">labels</th>
-                      <th scope="col">notes</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {transRecordDatas &&
-                      transRecordDatas.map( ( item, index ) => {
-                        return (
-                  <tr className='text-center'>
-                            <td>{item.date}</td>
-                            <td>{item.description}</td>
-                            <td>{item.originalDescription}</td>
-                            <td>{item.amount}</td>
-                            <td>{item.transactionType}</td>
-                            <td>{item.category}</td>
-                            <td>{item.accountName}</td>
-                            <td>{item.labels}</td>
-                            <td>{item.notes}</td>
-                          </tr>
-                          );
-                        } )
-                      }
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        
         </div>
         
     </>
