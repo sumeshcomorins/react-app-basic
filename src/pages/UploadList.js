@@ -16,6 +16,12 @@ export default function UploadList () {
     const userName = User.userDetail.name
     const [transRecordDatas, settransRecordDatas] = useState( '' )
     console.log('transRecordDatas', transRecordDatas)
+
+    const formatDate = ( date ) => {
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var now = new Date( date );
+        return months[now.getMonth()] + ' ' + now.getDate() + ' ' + now.getFullYear()
+      }
   
     const COLUMNS =[
         // {
@@ -26,7 +32,7 @@ export default function UploadList () {
         {
             Header : 'Date',
             accessor : 'date',
-            Cell : (cell) => <p className="no-margin text-center">{cell.original.date}</p>
+            Cell : (cell) => <p className="no-margin text-center">{formatDate(cell.original.date)}</p>
         },
         {
             Header : 'Description',

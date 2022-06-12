@@ -55,6 +55,12 @@ console.log('series', series)
 
 // console.log(obj2);
 
+const formatDate = ( date ) => {
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var now = new Date( date );
+  return months[now.getMonth()] + ' ' + now.getDate() + ' ' + now.getFullYear()
+}
+
   useEffect( () => {
     let formData = new FormData();
     formData.append( 'request', 'expenseRecord' )
@@ -77,19 +83,19 @@ var sumedUpDates = [];
 var amount = [];
 
 function isDateSumedUp(date) {
-    return sumedUpDates.indexOf(date.substring(0, 7)) !== -1;
+    return sumedUpDates.indexOf(date.substring(0, 10)) !== -1;
 }
 
 function sumUpDate(date) {
     var sum = 0;
 
     obj.forEach(t => {
-        if(t.date.substring(0, 7) === date.substring(0, 7)) {
+        if(t.date.substring(0, 10) === date.substring(0, 10)) {
             sum += parseInt(t.amount);
         }
     });
 
-    sumedUpDates.push(date.substring(0, 7));
+    sumedUpDates.push(date.substring(0, 10));
     amount.push(sum);
 }
 obj.forEach(t => {
@@ -111,7 +117,7 @@ for (var property in obje) {
       continue;
    }
 
-   data1.push(property);
+   data1.push(formatDate(property));
    data2.push(obje[property]);
 
 }

@@ -21,7 +21,7 @@ export default function List () {
   };
 
   const formatDate = ( date ) => {
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var now = new Date( date );
     return months[now.getMonth()] + ' ' + now.getDate() + ' ' + now.getFullYear()
   }
@@ -76,7 +76,7 @@ export default function List () {
                       expenseRecordDatas.map( ( item, index ) => {
                         return (
                           <tr className='text-center'>
-                            <td>{item.date}</td>
+                            <td>{formatDate(item.date)}</td>
                             <td>{item.amount}</td>
                             <td>{item.type}</td>
                             {/* <td>
