@@ -209,6 +209,9 @@ body {font-family: "Lato", sans-serif;}
   .chart {
       width:720px;
   }
+  .chart_box_pad{
+      padding: 30px 90px!important;
+  }
 
 
   /* media query starts here */
@@ -216,6 +219,9 @@ body {font-family: "Lato", sans-serif;}
   @media only screen and (max-width: 992px) {
     .login_box{
         width: 75%;
+    }
+    .chart_box_pad{
+        padding: 10px 20px!important;
     }
   }
   @media only screen and (max-width: 600px) {

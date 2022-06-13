@@ -121,24 +121,11 @@ for (var property in obje) {
    data2.push(obje[property]);
 
 }
-
-//date seperate is corrent but amount total calculate is wrong (so asign total of amount value in top of the --data2-- variable)
-          const holder = {};
-
-obj.forEach(function(d) {
-  if (holder.hasOwnProperty(d.date)) {
-    holder[d.date] = holder[d.date] + d.amount;
-  } else {
-    holder[d.date] = d.amount;
-  }
-});
-
 const obj2 = [];
 
-for (let prop in holder) {
-  obj2.push({ date: prop, amount: holder[prop] });
+for (let prop in obje) {
+  obj2.push({ date: formatDate(prop), amount: obje[prop] });
 }
-// in expenseRecordDatas state  data inside count of amount value calculation is wrong 
 setExpenseRecordDatas( obj2.sort((a, b) => new Date(b.date) - new Date(a.date)).reverse())
 const test =  {
   options:{
@@ -179,11 +166,26 @@ setSeries(data2)
           <div style={{margin:15}}>
             <div className="form_box report_shadow">
                 <div className="white_bg" style={{marginTop:90}}>
-                  <div className="login_box_pad">
+                  <div className="chart_box_pad">
                     <h1 className="no-margin padding_top_default text-center">Expense Chart</h1>
                     <h6 className="no-margin padding_top_default text-gray text-center">Your Expense Chart</h6>
                     
-        {series && datearray && <ReactApexChart options={state.options} series={series} type="pie" width={500} />}
+        {series && datearray && <ReactApexChart options={state.options} series={series} type="pie" />}
+        
+
+        {expenseRecordDatas && <VictoryChart
+                   domainPadding={25}
+                   style={{ data: { fill: "#c43a31" } }}
+                   alignment="start"
+                   >
+        <VictoryBar
+          data={expenseRecordDatas}
+          x="date"
+          y="amount"
+        />
+
+      </VictoryChart>}
+
                   </div>
                 </div>
             </div>
