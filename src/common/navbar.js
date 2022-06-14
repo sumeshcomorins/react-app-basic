@@ -43,6 +43,11 @@ export default function Navbar() {
                 </Link>                
               </li>
               <li class="nav-item">
+                <Link to={'/transactionForm'} className="nav-link">                    
+                    <i class="fe fe-file" ></i>Transaction Form                    
+                </Link>
+              </li>
+              <li class="nav-item">
                 <Link to={'/fileUpload'} className="nav-link">
                 <i class="fa-solid fa-file-arrow-up" style={{paddingRight:16}}></i> File Upload
                 </Link>                
