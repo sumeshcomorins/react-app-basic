@@ -12,11 +12,13 @@ import ReportChart from './pages/ReportChart';
 import FileUpload from './pages/FileUpload';
 import UploadList from './pages/UploadList';
 import TransactionForm from './pages/TransactionForm';
+import ShopForm from './pages/ShopForm';
 
 function App() {
   const [userToken, setUserToken] = useState(null)
   const [userDetail, setUserDetail] = useState(['bfjbdfbs']);
-  const user = {userDetail, setUserDetail,userToken,setUserToken};
+  const [ddContent, setddContent] = useState([]);
+  const user = {userDetail, setUserDetail,userToken,setUserToken,ddContent, setddContent};
   return (
     <div >
     {/* <h1>Welcome to React Router!</h1> */}
@@ -32,6 +34,7 @@ function App() {
         <Route  path="/transactionForm" element={<TransactionForm/>} />
         <Route  path="/fileUpload" element={<FileUpload/>} />
         <Route  path="/uploadtable" element={<UploadList/>} />
+        <Route  path="/shopForm" element={<ShopForm/>} />
         </>
           :
         <>

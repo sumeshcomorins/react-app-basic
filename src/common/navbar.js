@@ -56,7 +56,12 @@ export default function Navbar() {
                 <Link to={'/uploadtable'} className="nav-link">
                 <i class="fa-solid fa-table" style={{paddingRight:16}}></i> Upload List
                 </Link>                
-              </li>               
+              </li> 
+              <li class="nav-item">
+                <Link to={'/shopForm'} className="nav-link">
+                <i class="fa-solid fa-table" style={{paddingRight:16}}></i> Budget Form
+                </Link>                
+              </li>              
             </ul>
             <hr class="navbar-divider my-3" />
             <div class="mt-auto"></div>

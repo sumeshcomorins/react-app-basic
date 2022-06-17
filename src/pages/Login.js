@@ -31,6 +31,7 @@ console.log('response', response)
       if(response.data.status=='success'){
         User.setUserToken(response.data.user.id)
         User.setUserDetail(response.data.user)
+        User.setddContent(response.data.ddValue)
       }else{
           alert(' Email or Password wrong.')
       }
