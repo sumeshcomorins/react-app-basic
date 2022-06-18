@@ -59,7 +59,7 @@ export default function Navbar() {
               </li> 
               <li class="nav-item">
                 <Link to={'/shopForm'} className="nav-link">
-                <i class="fa-solid fa-table" style={{paddingRight:16}}></i> Budget Form
+                <i class="fa-solid fa-cart-shopping" style={{paddingRight:16}}></i> Budget Form
                 </Link>                
               </li>              
             </ul>
