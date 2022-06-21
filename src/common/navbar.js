@@ -29,14 +29,19 @@ export default function Navbar() {
               </li>
               <li class="nav-item">
                 <Link to={'/form'} className="nav-link">                    
-                    <i class="fe fe-file"></i>Form                    
+                    <i class="fe fe-file"></i>Expense Form                    
                 </Link>
               </li>
               <li class="nav-item">
-                <Link to={'/list'} className="nav-link">
-                  <i class="fe fe-grid"></i>List
+                <Link to={'/expenseFileUpload'} className="nav-link">
+                <i class="fa-solid fa-file-arrow-up" style={{paddingRight:16}}></i>Expense Upload
                 </Link>                
               </li>
+              <li class="nav-item">
+                <Link to={'/list'} className="nav-link">
+                  <i class="fe fe-grid"></i>Expense List
+                </Link>                
+              </li> 
               <li class="nav-item">
                 <Link to={'/reportChart'} className="nav-link">
                 <i class=" fa-solid fa-chart-column" style={{paddingRight:13}}></i> Chart Report
@@ -49,12 +54,12 @@ export default function Navbar() {
               </li>
               <li class="nav-item">
                 <Link to={'/fileUpload'} className="nav-link">
-                <i class="fa-solid fa-file-arrow-up" style={{paddingRight:16}}></i> File Upload
+                <i class="fa-solid fa-file-arrow-up" style={{paddingRight:16}}></i>Transaction Upload
                 </Link>                
               </li> 
               <li class="nav-item">
                 <Link to={'/uploadtable'} className="nav-link">
-                <i class="fa-solid fa-table" style={{paddingRight:16}}></i> Upload List
+                <i class="fa-solid fa-table" style={{paddingRight:16}}></i>Transaction List
                 </Link>                
               </li> 
               <li class="nav-item">

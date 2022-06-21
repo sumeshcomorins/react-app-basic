@@ -13,6 +13,7 @@ import FileUpload from './pages/FileUpload';
 import UploadList from './pages/UploadList';
 import TransactionForm from './pages/TransactionForm';
 import ShopForm from './pages/ShopForm';
+import ExpenseFileUpload from './pages/ExpenseFileUpload';
 
 function App() {
   const [userToken, setUserToken] = useState(null)
@@ -29,6 +30,7 @@ function App() {
        {userToken ? <>
         <Route  path="/" element={<Home/>} />
         <Route  path="/form" element={<Form/>} />
+        <Route  path="/expenseFileUpload" element={<ExpenseFileUpload/>} />
         <Route  path="/list" element={<List/>} />
         <Route  path="/reportChart" element={<ReportChart/>} />
         <Route  path="/transactionForm" element={<TransactionForm/>} />
