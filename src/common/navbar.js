@@ -42,11 +42,11 @@ export default function Navbar() {
                   <i class="fe fe-grid"></i>Expense List
                 </Link>                
               </li> 
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <Link to={'/reportChart'} className="nav-link">
                 <i class=" fa-solid fa-chart-column" style={{paddingRight:13}}></i> Chart Report
                 </Link>                
-              </li>
+              </li> */}
               <li class="nav-item">
                 <Link to={'/transactionForm'} className="nav-link">                    
                     <i class="fe fe-file" ></i>Transaction Form                    

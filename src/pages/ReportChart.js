@@ -15,6 +15,7 @@ export default function ReportChart() {
 
     const User = React.useContext( AuthContext );
   const userId = User.userDetail.id
+  const userName = User.userDetail.name
   const [expenseRecordDatas, setExpenseRecordDatas] = useState( '' )
   console.log('expenseRecordDatasscdssdss', expenseRecordDatas)
 const [series, setSeries] = useState('')
@@ -167,7 +168,7 @@ setSeries(data2)
             <div className="form_box report_shadow">
                 <div className="white_bg" style={{marginTop:90}}>
                   <div className="chart_box_pad">
-                    <h1 className="no-margin padding_top_default text-center">Expense Chart</h1>
+                    <h1 className="no-margin padding_top_default text-center">Welcome {userName}</h1>
                     <h6 className="no-margin padding_top_default text-gray text-center">Your Expense Chart</h6>
                     
         {series && datearray && <ReactApexChart options={state.options} series={series} type="pie" />}

@@ -28,11 +28,11 @@ function App() {
       <Routes>
         
        {userToken ? <>
-        <Route  path="/" element={<Home/>} />
+        {/* <Route  path="/home" element={<Home/>} /> */}
+        <Route  path="/" element={<ReportChart/>} />
         <Route  path="/form" element={<Form/>} />
         <Route  path="/expenseFileUpload" element={<ExpenseFileUpload/>} />
         <Route  path="/list" element={<List/>} />
-        <Route  path="/reportChart" element={<ReportChart/>} />
         <Route  path="/transactionForm" element={<TransactionForm/>} />
         <Route  path="/fileUpload" element={<FileUpload/>} />
         <Route  path="/uploadtable" element={<UploadList/>} />
